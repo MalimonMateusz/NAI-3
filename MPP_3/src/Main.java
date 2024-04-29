@@ -44,25 +44,24 @@ public class Main {
             }
         }
 
-        Scanner scanner = new Scanner(System.in);
 
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Own text => 1 ");
             System.out.println("Testing directory => 2 ");
             System.out.println("Exit => 3 ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Skonsumuj znak nowej linii
+             String choice = scanner.nextLine();
 
-            if (choice == 3) {
+            if (choice.equals("3")) {
                 System.out.println("Thanks For Using Our Software!");
                 break;
             }
-            if (choice == 1) {
+            if (choice.equals("1")) {
                 StringBuilder stringBuilder = new StringBuilder();
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
-                    if (line.isEmpty()) {
-                        break; // Przerwij pętlę, gdy użytkownik wprowadzi pustą linię
+                    if (line.equals("!!!")) {
+                        break;
                     }
                     stringBuilder.append(line).append("\n");
                 }
@@ -75,7 +74,7 @@ public class Main {
                     }
                 }
             }
-            if (choice == 2) {
+            if (choice.equals("2")) {
                 if (testFolder.isDirectory()) {
                     for (File txt : testFolder.listFiles()) {
                         System.out.println(txt.getName());
